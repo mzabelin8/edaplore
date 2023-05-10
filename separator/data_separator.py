@@ -13,16 +13,25 @@ class Separator:
             self.numeric = {}
             self.boolean = {}
             self.categorical = {}
+            self.data_classes = []
             # self.date_or_time = {}
 
     def separate(self):
         for col in self.col_names:
+            if define_data_type.is_bool_type(self.data[col]):
+                C = type_boolean.Boolean(self.data[col], col)
+                self.boolean[col] = C
+                self.data_classes.append(C)
+                continue
+
             if define_data_type.is_numeric_type(self.data[col]):
                 C = type_numeric.Numeric(self.data[col], col)
                 self.numeric[col] = C
-            if define_data_type.is_bool_type(self.data[col]):
-                C = type_boolean.Boolean(self.data[col], col)
-                self.numeric[col] = C
+                self.data_classes.append(C)
+                continue
+
             if define_data_type.is_categorical_type(self.data[col]):
                 C = type_categorical.Categorical(self.data[col], col)
-                self.numeric[col] = C
+                self.categorical[col] = C
+                self.data_classes.append(C)
+                continue

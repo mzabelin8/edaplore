@@ -45,6 +45,8 @@ def is_bool_type(data):
                 if el not in {0, 1}:
                     res = False
                     break
+    else:
+        res = False
 
     return res
 

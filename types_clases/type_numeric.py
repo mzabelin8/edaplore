@@ -1,4 +1,4 @@
-from type_father import Type
+from types_clases.type_father import Type
 from types_clases import names
 from stats.miss_values import count_miss_vals
 from stats import numeric_stats
