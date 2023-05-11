@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        img.dist-plot {
+            max-width: 25%; /* Adjust this to change the size of the image */
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <title>Numeric Class Stats</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-5">Numeric Class Stats</h2> <!-- h2 instead of h1 for smaller text -->
+        <table class="table table-sm table-striped mt-5"> <!-- table-sm for smaller text -->
+            <tbody>
+                <tr>
+                    <th>Column Name</th>
+                    <td>{{ numeric.column_name }}</td>
+                </tr>
+                <tr>
+                    <th>Type Name</th>
+                    <td>{{ numeric.type_name }}</td>
+                </tr>
+                <tr>
+                    <th>Count Values</th>
+                    <td>{{ numeric.count_values }}</td>
+                </tr>
+                <tr>
+                    <th>Missing Values</th>
+                    <td>{{ numeric.miss_values }}</td>
+                </tr>
+                <tr>
+                    <th>Duplicates</th>
+                    <td>{{ numeric.dublicates }}</td>
+                </tr>
+                <tr>
+                    <th>Max</th>
+                    <td>{{ numeric.max }}</td>
+                </tr>
+                <tr>
+                    <th>Min</th>
+                    <td>{{ numeric.min }}</td>
+                </tr>
+                <tr>
+                    <th>Mean</th>
+                    <td>{{ numeric.mean }}</td>
+                </tr>
+                <tr>
+                    <th>Standard Deviation</th>
+                    <td>{{ numeric.std }}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% if numeric.dist_plot %}
+            <div class="text-center mt-5">
+                <img class="dist-plot" src="data:image/png;base64,{{ numeric.dist_plot }}" alt="Distribution Plot">
+            </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
