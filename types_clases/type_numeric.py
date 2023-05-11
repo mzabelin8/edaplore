@@ -3,6 +3,11 @@ from types_clases import names
 from stats.miss_values import count_miss_vals
 from stats import numeric_stats
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+import base64
+from io import BytesIO
+
 
 # class Numeric(Type):
 #     def __init__(self, data, column_name):
@@ -18,10 +23,6 @@ from stats import numeric_stats
 #         self.mean = numeric_stats.count_mean(data)
 #         self.std = numeric_stats.count_std(data)
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-import base64
-from io import BytesIO
 
 class Numeric(Type):
     def __init__(self, data, column_name):
@@ -43,5 +44,3 @@ class Numeric(Type):
         plt.savefig(img, format='png')
         img.seek(0)
         self.dist_plot = base64.b64encode(img.read()).decode('utf-8')
-
-
