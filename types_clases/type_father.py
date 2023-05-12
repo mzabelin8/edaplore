@@ -1,5 +1,8 @@
 class Type:
-    def __init__(self):
+    def __init__(self, data, column_name):
+        self.data = data
+
+        self.column_name = column_name
         self.type_name = ''
 
         self.count_values = 0
