@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Overview</title>
+</head>
+<body>
+    <h1>Data Overview</h1>
+
+    {% from 'overview_1.html' import overview %}
+    {{ overview(overview_object) }}
+
+<!--    <h2>Numeric Data</h2>-->
+    {% from 'numeric.html' import numeric %}
+    {% for numeric_object in numerics %}
+        {{ numeric(numeric_object) }}
+    {% endfor %}
+</body>
+</html>
