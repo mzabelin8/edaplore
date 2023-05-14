@@ -1,0 +1,31 @@
+<div>
+    <h1>Categorical Data Summary</h1>
+
+    <table border="1">
+        <tr>
+            <th>Type Name</th>
+            <td>{{ cat.type_name }}</td>
+        </tr>
+        <tr>
+            <th>Count Values</th>
+            <td>{{ cat.count_values }}</td>
+        </tr>
+        <tr>
+            <th>Missing Values</th>
+            <td>{{ cat.miss_values }}</td>
+        </tr>
+        <tr>
+            <th>Categories</th>
+            <td>{{ cat.categ_names|join(", ") }}</td>
+        </tr>
+        <tr>
+            <th>Count Categories</th>
+            <td>{{ cat.count_categories }}</td>
+        </tr>
+    </table>
+
+    {% if cat.isPlot %}
+    <h2>Distribution Plot</h2>
+    <img src="data:image/png;base64,{{ cat.dist_plot }}" alt="Distribution Plot">
+    {% endif %}
+</div>

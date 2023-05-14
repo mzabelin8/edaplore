@@ -25,7 +25,7 @@ def count_std(data):
     return data.std()
 
 
-def count_dublicates(data):
+def count_duplicates(data):
     if not is_series(data):
         return 0
     return data.duplicated().sum()

@@ -1,0 +1,25 @@
+<div>
+    <h1>Boolean Data Summary</h1>
+
+    <table border="1">
+        <tr>
+            <th>Type Name</th>
+            <td>{{ boolean.type_name }}</td>
+        </tr>
+        <tr>
+            <th>Count Values</th>
+            <td>{{ boolean.count_values }}</td>
+        </tr>
+        <tr>
+            <th>Missing Values</th>
+            <td>{{ boolean.miss_values }}</td>
+        </tr>
+        <tr>
+            <th>Ratio</th>
+            <td>{{ boolean.ratio }}</td>
+        </tr>
+    </table>
+
+    <h2>Distribution Plot</h2>
+    <img src="data:image/png;base64,{{ boolean.dist_plot }}" alt="Distribution Plot">
+</div>

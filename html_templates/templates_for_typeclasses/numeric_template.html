@@ -1,0 +1,41 @@
+<div>
+    <h1>{{num.column_name}} Summary</h1>
+
+    <table border="1">
+        <tr>
+            <th>Type</th>
+            <td>{{ num.type_name }}</td>
+        </tr>
+        <tr>
+            <th>Count Values</th>
+            <td>{{ num.count_values }}</td>
+        </tr>
+        <tr>
+            <th>Missing Values</th>
+            <td>{{ num.miss_values }}</td>
+        </tr>
+        <tr>
+            <th>Duplicates</th>
+            <td>{{ num.duplicates }}</td>
+        </tr>
+        <tr>
+            <th>Max</th>
+            <td>{{ num.max }}</td>
+        </tr>
+        <tr>
+            <th>Min</th>
+            <td>{{ num.min }}</td>
+        </tr>
+        <tr>
+            <th>Mean</th>
+            <td>{{ num.mean }}</td>
+        </tr>
+        <tr>
+            <th>Standard Deviation</th>
+            <td>{{ num.std }}</td>
+        </tr>
+    </table>
+
+    <h2>Distribution Plot</h2>
+    <img src="data:image/png;base64,{{ num.dist_plot }}" alt="Distribution Plot">
+</div>

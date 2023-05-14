@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Page</title>
+</head>
+<body>
+  <h1>Welcome to my page!</h1>
+  {% include 'plot.html' %}
+  <img src="data:image/png;base64,{{ numeric_object.dist_plot }}" alt="Distribution Plot">
+</body>
+</html>
