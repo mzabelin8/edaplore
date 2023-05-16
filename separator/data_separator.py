@@ -14,7 +14,12 @@ class Separator:
             self.boolean = {}
             self.categorical = {}
             self.data_classes = []
-            # self.date_or_time = {}
+
+            self.separate()
+
+            self.numeric_list = list(self.numeric.values())
+            self.categorical_list = list(self.categorical.values())
+            self.boolean_list = list(self.boolean.values())
 
     def separate(self):
         for col in self.col_names:

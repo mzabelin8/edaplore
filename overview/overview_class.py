@@ -1,16 +1,12 @@
 from separator import define_data_type
 import types_clases.names as names
 
-class Overview:
-    def __init__(self, data):
-        self.count_columns = len(data)
-        self.count_rows = data[0].count_values
+from jinja2 import Environment, Template, FileSystemLoader
 
-        self.miss_vals = 0
-        self.count_numeric = 0
-        self.count_boolean = 0
-        self.count_categorical = 0
-        for el in data:
+
+class Overview:
+    def count_categories_and_miss(self):
+        for el in self.data:
             self.miss_vals += el.miss_values
 
             if names.numeric == el.type_name:
@@ -22,3 +18,21 @@ class Overview:
             if names.categorical == el.type_name:
                 self.count_categorical += 1
 
+    def render(self):
+        path_to_template = '../html_templates/templates_for_typeclasses'
+        env = Environment(loader=FileSystemLoader(path_to_template))
+        template = env.get_template('overview_template.html').render(overview=self)
+        return template
+
+    def __init__(self, data):
+        self.data = data
+        self.count_columns = len(data)
+        self.count_rows = data[0].count_values
+
+        self.miss_vals = 0
+        self.count_numeric = 0
+        self.count_boolean = 0
+        self.count_categorical = 0
+
+        self.count_categories_and_miss()
+        self.rendered = self.render()
