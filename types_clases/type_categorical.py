@@ -3,7 +3,7 @@ from types_clases import names
 from stats.miss_values import count_miss_vals
 from stats import numeric_stats, boolean_stats
 from stats import categorical_stats
-from images.make_plot import MakePlot
+from images.make_plot import dis_plot
 
 
 import seaborn as sns
@@ -16,7 +16,7 @@ from jinja2 import Environment, Template, FileSystemLoader
 
 class Categorical(Type):
     def render(self):
-        path_to_template = '../html_templates/templates_for_typeclasses'
+        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
         env = Environment(loader=FileSystemLoader(path_to_template))
         template = env.get_template('categorical_template.html').render(cat=self)
         return template
@@ -33,8 +33,7 @@ class Categorical(Type):
             return None
         self.isPlot = True
 
-        M = MakePlot()
-        return M.sns_dis_plot(self.data)
+        return dis_plot(self.data)
 
     def __init__(self, data, column_name):
         super().__init__(data, column_name)
