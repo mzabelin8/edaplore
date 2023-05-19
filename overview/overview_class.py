@@ -19,7 +19,7 @@ class Overview:
                 self.count_categorical += 1
 
     def render(self):
-        path_to_template = '../html_templates/templates_for_typeclasses'
+        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
         env = Environment(loader=FileSystemLoader(path_to_template))
         template = env.get_template('overview_template.html').render(overview=self)
         return template

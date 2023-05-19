@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Summary</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            padding-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table tbody+tbody {
+            border-top: 2px solid #dee2e6;
+        }
+
+        .table .table {
+            background-color: #fff;
+        }
+
+        .table-bordered {
+            border: 1px solid #dee2e6;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+
+        .table-bordered thead th,
+        .table-bordered thead td {
+            border-bottom-width: 2px;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        img {
+            display: block;
+            max-width: 50%;
+            height: auto;
+        }
+
+        .select-style {
+            margin: 0;
+            padding: 5px;
+            border: 1px solid #ccc;
+            width: 220px;
+            border-radius: 3px;
+            overflow: hidden;
+            background: #f0f0f0 url("arrow.png") no-repeat 90% center;
+            box-shadow: 0 1px 0 rgba(0,0,0,.1);
+        }
+
+        .select-style select {
+            padding: 5px 8px;
+            width: 130%;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            background-image: none;
+            -webkit-appearance: none;
+        }
+
+        .select-style select:focus {
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Explore Report</h1>
+    <div id="lop">
+        {{over.rendered}}
+    </div>
+
+    <h2>Numeric Columns</h2>
+    <div class="select-style">
+        <select id="dropdown1" onchange="showRendered1()">
+            <option value="" selected>Select an numeric</option>
+            {% for obj in sep.numeric_list %}
+                <option value="{{ loop.index0 }}">{{ obj.column_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content1"></div>
+
+    <script>
+        var renderedContent1 = [
+            {% for obj in sep.numeric_list %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered1() {
+            var select = document.getElementById("dropdown1");
+            var content = document.getElementById("content1");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent1[selectedIndex];
+        }
+    </script>
+
+    <h2>Categorical Columns</h2>
+    <div class="select-style">
+        <select id="dropdown2" onchange="showRendered2()">
+            <option value="" selected>Select an categorical</option>
+            {% for obj in sep.categorical_list %}
+                <option value="{{ loop.index0 }}">{{ obj.column_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content2"></div>
+
+    <script>
+        var renderedContent2 = [
+            {% for obj in sep.categorical_list %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered2() {
+            var select = document.getElementById("dropdown2");
+            var content = document.getElementById("content2");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent2[selectedIndex];
+        }
+    </script>
+
+    <h2>Boolean Columns</h2>
+    <div class="select-style">
+        <select id="dropdown3" onchange="showRendered3()">
+            <option value="" selected>Select an boolean</option>
+            {% for obj in sep.boolean_list %}
+                <option value="{{ loop.index0 }}">{{ obj.column_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content3"></div>
+
+    <script>
+        var renderedContent3 = [
+            {% for obj in sep.boolean_list %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered3() {
+            var select = document.getElementById("dropdown3");
+            var content = document.getElementById("content3");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent3[selectedIndex];
+        }
+    </script>
+</body>
+</html>
+

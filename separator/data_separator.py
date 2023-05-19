@@ -13,6 +13,7 @@ class Separator:
             self.numeric = {}
             self.boolean = {}
             self.categorical = {}
+
             self.data_classes = []
 
             self.separate()

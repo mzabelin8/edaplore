@@ -21,11 +21,11 @@ def save_plot(plot_format='png'):
     return result
 
 
-def image_render(image):
-    path_to_template = './html_templates'
-    env = Environment(loader=FileSystemLoader(path_to_template))
-    rendered = env.get_template('template_for_image_.html').render(plot=image)
-    return rendered
+# def image_render(image):
+#     path_to_template = './html_templates'
+#     env = Environment(loader=FileSystemLoader(path_to_template))
+#     rendered = env.get_template('template_for_image_.html').render(plot=image)
+#     return rendered
 
 
 def dis_plot(data,

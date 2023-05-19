@@ -17,11 +17,13 @@ S = type_boolean.Boolean(df['survived'], 'survivded')
 # comb = Combiner(x=N1, y=N2, hue=C)
 
 # comb = Combiner(x=C, y=N2)
-# comb = Combiner(x=C, y=N2, hue=S)
+comb = Combiner(x=C, y=N2)
 # comb = Combiner(x=C, hue=S)
-comb = Combiner(x=C, y=E, hue=S)
+# comb = Combiner(x=C, y=E, hue=S)
 
-image = plot.cat_plot(comb)
+image = plot.strip_plot(comb)
+
+
 
 env = Environment(loader=FileSystemLoader('.'))
 t = env.get_template('temp.html').render(plot=image)
