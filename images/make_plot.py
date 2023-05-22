@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 from jinja2 import Environment, Template, FileSystemLoader
+from copy import copy
 
 
 def plt_formatter(figure_size=(10, 6),
@@ -72,7 +73,9 @@ def count_plot_combiner(combiner,
                   x_label=x_label,
                   y_label=y_label)
 
-    sns.countplot(**combiner.args)
+    args = combiner.args.copy()
+
+    sns.countplot(**args)
 
     return save_plot()
 
@@ -119,8 +122,8 @@ def scatter_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.scatterplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.scatterplot(**args)
 
     return save_plot()
 
@@ -139,8 +142,8 @@ def line_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.lineplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.lineplot(**args)
 
     return save_plot()
 
@@ -184,12 +187,14 @@ def joint_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-    if combiner.hue:
-        combiner.args['kind'] = 'scatter'
-    else:
-        combiner.args['kind'] = 'hex'
+    args = combiner.args.copy()
 
-    sns.jointplot(**combiner.args)
+    if combiner.hue:
+        args['kind'] = 'scatter'
+    else:
+        args['kind'] = 'hex'
+
+    sns.jointplot(**args)
 
     return save_plot()
 
@@ -208,12 +213,13 @@ def kde_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
+    args = combiner.args.copy()
     if combiner.hue:
-        combiner.args['fill'] = False
+        args['fill'] = False
     else:
-        combiner.args['fill'] = True
+        args['fill'] = True
 
-    sns.kdeplot(**combiner.args)
+    sns.kdeplot(**args)
 
     return save_plot()
 
@@ -232,8 +238,8 @@ def box_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.boxplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.boxplot(**args)
 
     return save_plot()
 
@@ -252,8 +258,8 @@ def bar_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.barplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.barplot(**args)
 
     return save_plot()
 
@@ -272,8 +278,8 @@ def violin_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.violinplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.violinplot(**args)
 
     return save_plot()
 
@@ -292,8 +298,8 @@ def strip_plot(combiner,
     plt_formatter(figure_size=figure_size,
                   x_label=x_label,
                   y_label=y_label)
-
-    sns.stripplot(**combiner.args)
+    args = combiner.args.copy()
+    sns.stripplot(**args)
 
     return save_plot()
 

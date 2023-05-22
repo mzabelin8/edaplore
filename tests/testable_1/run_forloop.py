@@ -113,8 +113,6 @@ comb = Combiner(x=C, y=N2, hue=S)
 image = plot.strip_plot(comb)
 plots.append(image)
 
-
-
 # cat plot
 comb = Combiner(x=C, y=E, hue=S)
 image = plot.cat_plot(comb)

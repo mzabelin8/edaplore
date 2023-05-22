@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Num and Num</h2>
+    <div class="select-style">
+        <select id="dropdown1" onchange="showRendered1()">
+            <option value="" selected>Select</option>
+            {% for obj in NN %}
+                <option value="{{ loop.index0 }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content1"></div>
+
+    <script>
+        var renderedContent1 = [
+            {% for obj in NN %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered1() {
+            var select = document.getElementById("dropdown1");
+            var content = document.getElementById("content1");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent1[selectedIndex];
+        }
+    </script>
+<h2>Num and Categ</h2>
+    <div class="select-style">
+        <select id="dropdown2" onchange="showRendered2()">
+            <option value="" selected>Select</option>
+            {% for obj in NC %}
+                <option value="{{ loop.index0 }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content2"></div>
+
+    <script>
+        var renderedContent2 = [
+            {% for obj in NC %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered2() {
+            var select = document.getElementById("dropdown2");
+            var content = document.getElementById("content2");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent2[selectedIndex];
+        }
+    </script>
+
+<h2>Categ and Categ</h2>
+    <div class="select-style">
+        <select id="dropdown3" onchange="showRendered3()">
+            <option value="" selected>Select</option>
+            {% for obj in CC %}
+                <option value="{{ loop.index0 }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content3"></div>
+
+    <script>
+        var renderedContent3 = [
+            {% for obj in CC %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered3() {
+            var select = document.getElementById("dropdown3");
+            var content = document.getElementById("content3");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent3[selectedIndex];
+        }
+    </script>
+
+<h2>Num Num and Cat</h2>
+    <div class="select-style">
+        <select id="dropdown4" onchange="showRendered4()">
+            <option value="" selected>Select</option>
+            {% for obj in N2C %}
+                <option value="{{ loop.index0 }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content4"></div>
+
+    <script>
+        var renderedContent4 = [
+            {% for obj in N2C %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered4() {
+            var select = document.getElementById("dropdown4");
+            var content = document.getElementById("content4");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent4[selectedIndex];
+        }
+    </script>
+
+<h2>Num Cat and Cat</h2>
+    <div class="select-style">
+        <select id="dropdown5" onchange="showRendered5()">
+            <option value="" selected>Select</option>
+            {% for obj in NC2 %}
+                <option value="{{ loop.index0 }}">{{ obj.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div id="content5"></div>
+
+    <script>
+        var renderedContent5 = [
+            {% for obj in NC2 %}
+                `{{ obj.rendered }}`,
+            {% endfor %}
+        ];
+
+        function showRendered5() {
+            var select = document.getElementById("dropdown5");
+            var content = document.getElementById("content5");
+
+            var selectedIndex = select.value;
+
+            content.innerHTML = "";
+
+            if (selectedIndex === "") {
+                return;
+            }
+
+            content.innerHTML = renderedContent5[selectedIndex];
+        }
+    </script>
+</body>
+</html>
