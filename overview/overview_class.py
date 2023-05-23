@@ -2,6 +2,7 @@ from separator import define_data_type
 import types_clases.names as names
 
 from jinja2 import Environment, Template, FileSystemLoader
+from html_templates.template_loader import find_template
 
 
 class Overview:
@@ -19,9 +20,7 @@ class Overview:
                 self.count_categorical += 1
 
     def render(self):
-        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('overview_template.html').render(overview=self)
+        template = find_template('overview_template.html').render(overview=self)
         return template
 
     def __init__(self, data):

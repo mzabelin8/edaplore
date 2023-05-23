@@ -10,14 +10,14 @@ import base64
 from io import BytesIO
 
 from jinja2 import Environment, Template, FileSystemLoader
+from html_templates.template_loader import find_template
 
 
 class Boolean(Type):
     def render(self):
-        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('boolean_template.html').render(boolean=self)
+        template = find_template('boolean_template.html').render(boolean=self)
         return template
+
 
     def __init__(self, data, column_name):
         super().__init__(data, column_name)

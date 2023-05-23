@@ -7,15 +7,14 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
-
-from jinja2 import Environment, Template, FileSystemLoader
+import os
+from jinja2 import Environment, Template, FileSystemLoader, PackageLoader
+from html_templates.template_loader import find_template
 
 
 class Numeric(Type):
     def render(self):
-        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('numeric_template.html').render(num=self)
+        template = find_template('numeric_template.html').render(num=self)
         return template
 
     def __init__(self, data, column_name):

@@ -21,16 +21,16 @@ df = sns.load_dataset('titanic')
 
 separ = Separator(data=df)
 
-nn = []
-
-for el1 in separ.numeric_list:
-    for el2 in separ.numeric_list:
-        if not el1 is el2:
-            inter = NumNum(el1, el2)
-            nn.append(inter)
-
-print(f'nn is {time.time() - start_time}')
-start_time = time.time()
+# nn = []
+#
+# for el1 in separ.numeric_list:
+#     for el2 in separ.numeric_list:
+#         if not el1 is el2:
+#             inter = NumNum(el1, el2)
+#             nn.append(inter)
+#
+# print(f'nn is {time.time() - start_time}')
+# start_time = time.time()
 
 nc = []
 for el1 in separ.numeric_list:
@@ -49,27 +49,27 @@ for el1 in separ.categorical_list:
 print(f'cc is {time.time() - start_time}')
 start_time = time.time()
 
-n2c = []
-for el1 in separ.numeric_list:
-    for el2 in separ.numeric_list:
-        for el3 in separ.categorical_list:
-            if not el1 is el2:
-                inter = Num2Cat(el1, el2, el3)
-                n2c.append(inter)
+# n2c = []
+# for el1 in separ.numeric_list:
+#     for el2 in separ.numeric_list:
+#         for el3 in separ.categorical_list:
+#             if not el1 is el2:
+#                 inter = Num2Cat(el1, el2, el3)
+#                 n2c.append(inter)
+#
+# print(f'n2c is {time.time() - start_time}')
+# start_time = time.time()
 
-print(f'n2c is {time.time() - start_time}')
-start_time = time.time()
-
-nc2 = []
-for el1 in separ.numeric_list:
-    for el2 in separ.categorical_list:
-        for el3 in separ.categorical_list:
-            if not el2 is el3:
-                inter = NumCat2(el1, el2, el3)
-                nc2.append(inter)
-
-print(f'nc2 is {time.time() - start_time}')
-start_time = time.time()
+# nc2 = []
+# for el1 in separ.numeric_list:
+#     for el2 in separ.categorical_list:
+#         for el3 in separ.categorical_list:
+#             if not el2 is el3:
+#                 inter = NumCat2(el1, el2, el3)
+#                 nc2.append(inter)
+#
+# print(f'nc2 is {time.time() - start_time}')
+# start_time = time.time()
 
 
 

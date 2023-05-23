@@ -5,20 +5,18 @@ from stats import numeric_stats, boolean_stats
 from stats import categorical_stats
 from images.make_plot import dis_plot
 
-
 import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 
 from jinja2 import Environment, Template, FileSystemLoader
+from html_templates.template_loader import find_template
 
 
 class Categorical(Type):
     def render(self):
-        path_to_template = '/Users/maximzabelin/Programming/hse2/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('categorical_template.html').render(cat=self)
+        template = find_template('categorical_template.html').render(cat=self)
         return template
 
     def count_categ_names_len(self):
@@ -52,4 +50,3 @@ class Categorical(Type):
 
         self.dist_plot = self.make_plot()
         self.rendered = self.render()
-
