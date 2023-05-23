@@ -29,8 +29,8 @@ class Numeric(Type):
 
         self.max = numeric_stats.count_max(data)
         self.min = numeric_stats.count_min(data)
-        self.mean = numeric_stats.count_mean(data)
-        self.std = numeric_stats.count_std(data)
+        self.mean = round(numeric_stats.count_mean(data), 3)
+        self.std = round(numeric_stats.count_std(data), 3)
 
         self.dist_plot = dis_plot(self.data)
         self.rendered = self.render()
