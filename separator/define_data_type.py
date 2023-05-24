@@ -9,7 +9,7 @@ def is_data_frame(data):
     :param data:
     :return: bool
     """
-    return type(data) == pd.core.frame.DataFrame
+    return isinstance(data, pd.DataFrame)
 
 
 def is_series(data):
@@ -19,36 +19,28 @@ def is_series(data):
     :param data: object
     :return: bool
     """
-    return type(data) == pd.core.series.Series
+    return isinstance(data, pd.Series)
 
 
 def is_categorical_type(data):
-    col_type = data.dtypes
-    return col_type in names.categorical_type
+    return pd.api.types.is_categorical_dtype(data.dtype)
 
 
 def is_numeric_type(data):
-    col_type = data.dtypes
-    return col_type in names.numeric_types
+    if pd.api.types.is_numeric_dtype(data.dtype):
+        if set(data.unique()).issubset({0, 1}):
+            return False
+        return True
+    return False
 
 
 def is_bool_type(data):
-    res = True
-    if data.dtypes in names.bool_type:
-        return res
-    if is_numeric_type(data):
-        set_vals = set(data)
-        if len(set_vals) != 2:
-            res = False
-        else:
-            for el in set_vals:
-                if el not in {0, 1}:
-                    res = False
-                    break
-    else:
-        res = False
-
-    return res
+    if pd.api.types.is_bool_dtype(data.dtype):
+        return True
+    if pd.api.types.is_numeric_dtype(data.dtype):
+        if set(data.unique()).issubset({0, 1}):
+            return True
+    return False
 
 
 def define_type_of_series(data):
@@ -68,8 +60,3 @@ def define_type_of_series(data):
 
     if is_bool_type(data):
         return names.bolean
-
-
-
-
-

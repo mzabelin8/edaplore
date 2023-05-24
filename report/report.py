@@ -14,11 +14,11 @@ class Report:
         return template
 
     def save_html(self, path):
-        with open(path, 'w') as f:
+        with open(path + '/report2.html', 'w') as f:
             f.write(self.rendered)
 
-    def __init__(self, df, path):
-        self.separ = Separator(df)
+    def __init__(self, df, path, fill_mis=False):
+        self.separ = Separator(df, fill_mis=fill_mis)
         self.overview = Overview(self.separ.data_classes)
         self.compar = Comparator(self.separ)
 

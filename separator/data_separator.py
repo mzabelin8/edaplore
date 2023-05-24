@@ -5,9 +5,19 @@ from types_clases import type_numeric
 
 
 class Separator:
-    def __init__(self, data):
+    def fill_mis_values(self):
+        self.data.fillna(self.data.mean(), inplace=True)
+        self.data.fillna('missing', inplace=True)
+
+    def drop_outlier(self):
+        pass
+
+    def __init__(self, data, fill_mis=False):
         if define_data_type.is_data_frame(data):
             self.data = data
+            if fill_mis:
+                self.fill_mis_values()
+
             self.col_names = list(data.columns)
 
             self.numeric = {}
