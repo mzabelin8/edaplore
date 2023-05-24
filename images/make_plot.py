@@ -304,6 +304,12 @@ def strip_plot(combiner,
     return save_plot()
 
 
+def heat_map_mis(df):
+    plt_formatter()
+    sns.heatmap(df.isna().transpose(), cmap="YlGnBu")
+    return save_plot()
+
+
 def heat_map(combiner,
              figure_size=(10, 6),
              plot_format='png',

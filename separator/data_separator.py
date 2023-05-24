@@ -5,9 +5,21 @@ from types_clases import type_numeric
 
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import OneHotEncoder
 
 
 class Separator:
+    def one_hot_encode(self):
+        encoder = OneHotEncoder(sparse=False)
+
+        for col in self.col_names:
+            if define_data_type.is_categorical_type(self.data[col]):
+                if self.data[col].nunique() <= 3:
+                    encoded_cols = encoder.fit_transform(self.data[[col]])
+                    df_encoded = pd.DataFrame(encoded_cols, columns=[f'{col}_{cat}' for cat in encoder.categories_[0]])
+                    self.data = self.data.drop(col, axis=1)
+                    self.data = pd.concat([self.data, df_encoded], axis=1)
+
     def fill_mis_values(self):
         for col in self.col_names:
             if define_data_type.is_numeric_type(self.data[col]):
@@ -26,8 +38,9 @@ class Separator:
         masks = numeric_cols.apply(lambda x: x <= quantiles[x.name])
 
         self.data = self.data[masks.all(axis=1)]
+        self.data = self.data.reset_index(drop=True)
 
-    def __init__(self, data, fill_mis=False, drop_outliers=False, threshold=0.95):
+    def __init__(self, data, fill_mis=False, drop_outliers=False, threshold=0.95, ohe=False):
         if define_data_type.is_data_frame(data):
             self.data = data
             self.col_names = list(data.columns)
@@ -37,6 +50,11 @@ class Separator:
 
             if drop_outliers:
                 self.drop_outlier(threshold)
+
+            if ohe:
+                self.one_hot_encode()
+
+            self.col_names = list(self.data.columns)
 
             self.numeric = {}
             self.boolean = {}
