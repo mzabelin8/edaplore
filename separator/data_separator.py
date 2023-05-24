@@ -3,22 +3,40 @@ from types_clases import type_categorical
 from types_clases import type_boolean
 from types_clases import type_numeric
 
+import pandas as pd
+import numpy as np
+
 
 class Separator:
     def fill_mis_values(self):
+        for col in self.col_names:
+            if define_data_type.is_numeric_type(self.data[col]):
+                self.data[col].fillna(self.data[col].mean(), inplace=True)
+            else:
+                self.data[col].fillna(self.data[col].mode()[0], inplace=True)
+
         self.data.fillna(self.data.mean(), inplace=True)
         self.data.fillna('missing', inplace=True)
 
-    def drop_outlier(self):
-        pass
+    def drop_outlier(self, threshold=0.95):
+        numeric_cols = self.data.select_dtypes(include=[np.number])  # Select only numeric columns
 
-    def __init__(self, data, fill_mis=False):
+        quantiles = numeric_cols.quantile(threshold)
+
+        masks = numeric_cols.apply(lambda x: x <= quantiles[x.name])
+
+        self.data = self.data[masks.all(axis=1)]
+
+    def __init__(self, data, fill_mis=False, drop_outliers=False, threshold=0.95):
         if define_data_type.is_data_frame(data):
             self.data = data
+            self.col_names = list(data.columns)
+
             if fill_mis:
                 self.fill_mis_values()
 
-            self.col_names = list(data.columns)
+            if drop_outliers:
+                self.drop_outlier(threshold)
 
             self.numeric = {}
             self.boolean = {}
