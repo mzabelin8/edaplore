@@ -304,9 +304,33 @@ def strip_plot(combiner,
     return save_plot()
 
 
-def heat_map_mis(df):
-    plt_formatter()
-    sns.heatmap(df.isna().transpose(), cmap="YlGnBu")
+def heat_map_general(data, colormap="YlGnBu",
+                     annot=False,
+                     figure_size=(10, 6),
+                     plot_format='png',
+                     x_label='x_label',
+                     y_label='y_label'):
+    plt_formatter(figure_size=figure_size,
+                  x_label=x_label,
+                  y_label=y_label)
+
+    sns.heatmap(data, cmap=colormap, annot=annot)
+
+    return save_plot()
+
+
+def barplot_general(x, y,
+                    figure_size=(10, 6),
+                    plot_format='png',
+                    x_label='x_label',
+                    y_label='y_label',
+                    palette="YlGnBu"):
+    plt_formatter(figure_size=figure_size,
+                  x_label=x_label,
+                  y_label=y_label)
+
+    sns.barplot(x=x, y=y, palette=palette)
+
     return save_plot()
 
 

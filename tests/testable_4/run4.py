@@ -3,19 +3,22 @@ import seaborn as sns
 import pandas as pd
 from separator.data_separator import Separator
 
-# df = sns.load_dataset('tips')
-df = pd.read_csv('/Users/maximzabelin/Desktop/titanic/train.csv')
 
-df = df.head(100)
-path = '/Users/maximzabelin/desktop'
+# df = pd.read_csv('/Users/maximzabelin/Desktop/titanic/train.csv')
+#
+# df = df.head(100)
+
 
 # s = Separator(df,
-#               fill_mis=True,
-#               drop_outliers=True,
-#               ohe=True)
+#               fill_mis=False,
+#               drop_outliers=False,
+#               ohe=False)
 # print(s.col_names)
-R = Report(df,
+
+data = sns.load_dataset('tips')
+path = '/Users/maximzabelin/desktop/tes_1_1.html'
+R = Report(data,
            path,
-           fill_mis=False,
+           fill_mis=True,
            drop_outliers=False,
-           ohe=False)
+           ohe=True)

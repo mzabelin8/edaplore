@@ -69,6 +69,7 @@ class Separator:
             self.boolean_list = list(self.boolean.values())
 
     def separate(self):
+        cat_cols = self.data.select_dtypes(include=['object']).columns
         for col in self.col_names:
             if define_data_type.is_bool_type(self.data[col]):
                 C = type_boolean.Boolean(self.data[col], col)
@@ -82,7 +83,7 @@ class Separator:
                 self.data_classes.append(C)
                 continue
 
-            if define_data_type.is_categorical_type(self.data[col]):
+            if define_data_type.is_categorical_type(self.data[col]) or self.data[col].name in cat_cols:
                 C = type_categorical.Categorical(self.data[col], col)
                 self.categorical[col] = C
                 self.data_classes.append(C)
