@@ -26,6 +26,7 @@ class Boolean(Type):
         self.count_values = len(data)
         self.miss_values = count_miss_vals(data)
         self.ratio = boolean_stats.count_ration(data)
+        self.count_categories = 2
 
         self.dist_plot = count_plot(self.data)
         self.rendered = self.render()
