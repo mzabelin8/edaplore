@@ -1,52 +1,43 @@
 from types_clases.type_father import Type
 from types_clases import names
 from stats.miss_values import count_miss_vals
-from stats import numeric_stats, boolean_stats
 from stats import categorical_stats
 from images.make_plot import dis_plot
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-import base64
-from io import BytesIO
-
-from jinja2 import Environment, Template, FileSystemLoader
 from html_templates.template_loader import find_template
 
 
+# Class to handle Categorical data type and perform statistical analysis and plotting.
 class Categorical(Type):
+
+    # Render the HTML template specific to categorical data
     def render(self):
-        template = find_template('categorical_template.html').render(cat=self)
-        return template
+        return find_template('categorical_template.html').render(cat=self)
 
+    # Function to calculate the total length of all category names
     def count_categ_names_len(self):
-        c = self.data.cat.categories
-        res = 0
-        for el in c:
-            res += len(el)
-        return res
+        return sum(len(el) for el in self.data.cat.categories)
 
+    # Generate a distribution plot for the data if the total length of category names is <= 30
     def make_plot(self):
         if self.names_length > 30:
             return None
         self.isPlot = True
-
         return dis_plot(self.data)
 
     def __init__(self, data, column_name):
         super().__init__(data, column_name)
 
-        self.data = data.astype('category')
-        self.type_name = names.categorical
-        self.count_values = len(data)
-        self.miss_values = count_miss_vals(data)
+        self.data = data.astype('category')  # Convert data to categorical type
+        self.type_name = names.categorical  # Set data type name
+        self.count_values = len(data)  # Count total values in data
+        self.miss_values = count_miss_vals(data)  # Count missing values
 
-        self.categories = categorical_stats.get_value_counts(data)
-        self.count_categories = len(self.categories)
+        self.categories = categorical_stats.get_value_counts(data)  # Get value counts for each category
+        self.count_categories = len(self.categories)  # Number of unique categories in data
 
-        self.isPlot = False
-        self.names_length = self.count_categ_names_len()
-        self.categ_names = list(self.categories.index)
+        self.isPlot = False  # Initialize flag to indicate whether a plot can be made
+        self.names_length = self.count_categ_names_len()  # Calculate total length of category names
+        self.categ_names = list(self.categories.index)  # List of unique category names
 
-        self.dist_plot = self.make_plot()
-        self.rendered = self.render()
+        self.dist_plot = self.make_plot()  # Generate a distribution plot
+        self.rendered = self.render()  # Render HTML template for displaying data stats

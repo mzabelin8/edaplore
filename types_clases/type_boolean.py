@@ -1,32 +1,26 @@
 from types_clases.type_father import Type
 from types_clases import names
 from stats.miss_values import count_miss_vals
-from stats import numeric_stats, boolean_stats
-from stats import categorical_stats
+from stats import boolean_stats
 from images.make_plot import count_plot
-import seaborn as sns
-import matplotlib.pyplot as plt
-import base64
-from io import BytesIO
-
-from jinja2 import Environment, Template, FileSystemLoader
 from html_templates.template_loader import find_template
 
 
+# Class to handle Boolean data type and perform statistical analysis and plotting.
 class Boolean(Type):
-    def render(self):
-        template = find_template('boolean_template.html').render(boolean=self)
-        return template
 
+    # Render the HTML template specific to boolean data
+    def render(self):
+        return find_template('boolean_template.html').render(boolean=self)
 
     def __init__(self, data, column_name):
         super().__init__(data, column_name)
 
-        self.type_name = names.bolean
-        self.count_values = len(data)
-        self.miss_values = count_miss_vals(data)
-        self.ratio = boolean_stats.count_ration(data)
-        self.count_categories = 2
+        self.type_name = names.bolean  # Set data type name
+        self.count_values = len(data)  # Count total values in data
+        self.miss_values = count_miss_vals(data)  # Count missing values
+        self.ratio = boolean_stats.count_ration(data)  # Calculate ratio of True to False values
+        self.count_categories = 2  # Number of categories in Boolean type (True and False)
 
-        self.dist_plot = count_plot(self.data)
-        self.rendered = self.render()
+        self.dist_plot = count_plot(self.data)  # Generate a distribution plot
+        self.rendered = self.render()  # Render HTML template for displaying data stats

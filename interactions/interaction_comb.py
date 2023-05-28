@@ -1,8 +1,15 @@
 import interactions.interactions_classes as inter_class
 import time
 
+
 class ComparatorU:
     def __init__(self, separ, cols):
+        """
+        Initializes the ComparatorU class, creates instances of interactions between numeric, categorical and boolean data.
+
+        :param separ: An instance of Separator class.
+        :param cols: A list of column names to consider for interactions.
+        """
         self.storage = {}
         self.cols = cols
         self.allowed_cols = set()

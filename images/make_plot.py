@@ -2,8 +2,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
-from jinja2 import Environment, Template, FileSystemLoader
-from copy import copy
 
 
 def plt_formatter(figure_size=(10, 6),
@@ -20,13 +18,6 @@ def save_plot(plot_format='png'):
     img.seek(0)
     result = base64.b64encode(img.read()).decode('utf-8')
     return result
-
-
-# def image_render(image):
-#     path_to_template = './html_templates'
-#     env = Environment(loader=FileSystemLoader(path_to_template))
-#     rendered = env.get_template('template_for_image_.html').render(plot=image)
-#     return rendered
 
 
 def dis_plot(data,
