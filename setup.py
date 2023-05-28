@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='edaplore',
-    version='0.2.2',
+    version='0.2.3',
     author='Maksim Zabelin',
     author_email='mzabelin8@mail.ru',
     description='EDA helper',
