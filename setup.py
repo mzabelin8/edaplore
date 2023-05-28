@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='edaplore',
-    version='0.3.3',
+    version='0.3.5',
     author='Maksim Zabelin',
     author_email='mzabelin8@mail.ru',
     description='EDA helper',
     long_description='',
     license='MIT',
     url='https://github.com/mzabelin8/explore_hse',
-    packages=find_packages("src/edaplore"),
+    packages=find_packages("src"),
     package_dir={"": "src"},
     install_requires=[
         'Jinja2==3.1.2',
