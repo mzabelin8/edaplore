@@ -1,6 +1,0 @@
-setup.py
-edaplore.egg-info/PKG-INFO
-edaplore.egg-info/SOURCES.txt
-edaplore.egg-info/dependency_links.txt
-edaplore.egg-info/requires.txt
-edaplore.egg-info/top_level.txt

@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
 
-
 setup(
     name='edaplore',
-    version='0.2.3',
+    version='0.3.3',
     author='Maksim Zabelin',
     author_email='mzabelin8@mail.ru',
     description='EDA helper',
     long_description='',
     license='MIT',
     url='https://github.com/mzabelin8/explore_hse',
-    packages=find_packages(),
+    packages=find_packages("src/edaplore"),
+    package_dir={"": "src"},
     install_requires=[
         'Jinja2==3.1.2',
         'matplotlib==3.7.1',
