@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/edaplore/__init__.py
+src/edaplore.egg-info/PKG-INFO
+src/edaplore.egg-info/SOURCES.txt
+src/edaplore.egg-info/dependency_links.txt
+src/edaplore.egg-info/requires.txt
+src/edaplore.egg-info/top_level.txt
