@@ -1,1 +1,1 @@
-import report
+from .report.report import Report
