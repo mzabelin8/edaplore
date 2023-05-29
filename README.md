@@ -14,22 +14,32 @@ pip install edaplore
 
 git clone https://github.com/mzabelin8/edaplore.git
 
-##Here's an example of how to run the code:
+## Here's an example of how to run the code:
 import pandas as pd
+
 from edaplore imoprt Report
+
 data = pd.read_csv('path_to_data')
+
 path = 'path_to_save'
+
 R = Report(data,
            path,
            fill_mis=False,
            drop_outliers=False,
            ohe=False)
+
 data: This is a pandas DataFrame that you want to analyze.
+
 path: This is the path where the generated HTML report will be saved.
+
 fill_mis: This is a boolean that indicates whether missing values should be filled. The default is False.
+
 drop_outliers: This is a boolean that indicates whether outliers should be dropped. The default is False.
+
 ohe: This is a boolean that indicates whether one-hot encoding should be performed. The default is False.
-After running the above script, an HTML report will be generated and saved to the specified path​1​.
+
+After running the above script, an HTML report will be generated and saved to the specified path
 
 ## License
 This project is licensed under the terms of the MIT license.
