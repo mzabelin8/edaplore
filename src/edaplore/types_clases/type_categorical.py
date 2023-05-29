@@ -1,9 +1,9 @@
-from src.edaplore.types_clases.type_father import Type
-from src.edaplore.types_clases import names
-from src.edaplore.stats.miss_values import count_miss_vals
-from src.edaplore.stats import categorical_stats
-from src.edaplore.images.make_plot import dis_plot
-from src.edaplore.html_templates.template_loader import find_template
+from edaplore.types_clases.type_father import Type
+from edaplore.types_clases import names
+from edaplore.stats.miss_values import count_miss_vals
+from edaplore.stats import categorical_stats
+from edaplore.images.make_plot import dis_plot
+from edaplore.html_templates.template_loader import find_template
 
 
 # Class to handle Categorical data type and perform statistical analysis and plotting.

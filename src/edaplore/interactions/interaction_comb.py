@@ -1,6 +1,5 @@
-from src import edaplore as inter_class
 import time
-
+import edaplore.interactions.interactions_classes as inter_class
 
 class ComparatorU:
     def __init__(self, separ, cols):

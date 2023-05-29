@@ -1,3 +1,3 @@
-from .report.report import Report
+from edaplore.reporc import Report
 
 __all__ = ["Report"]

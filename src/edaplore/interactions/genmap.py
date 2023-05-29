@@ -1,5 +1,5 @@
-from src import edaplore as plot
-from src.edaplore.html_templates.template_loader import find_template
+import edaplore.images.make_plot as plot
+from edaplore.html_templates.template_loader import find_template
 
 
 class GenMap:

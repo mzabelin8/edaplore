@@ -1,4 +1,4 @@
-from src.edaplore.separator.define_data_type import is_series
+from edaplore.separator.define_data_type import is_series
 
 
 def count_miss_vals(data):

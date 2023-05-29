@@ -1,6 +1,6 @@
-import src.edaplore.types_clases.names as names
+import edaplore.types_clases.names as names
 
-from src.edaplore.html_templates.template_loader import find_template
+from edaplore.html_templates.template_loader import find_template
 
 
 class Overview:

@@ -1,8 +1,9 @@
-from src.edaplore.separator.data_separator import Separator
-from src.edaplore.overview.overview_class import Overview
-from src.edaplore.interactions.interaction_comb import ComparatorU
-from src.edaplore.html_templates.template_loader import find_template
-from src.edaplore.interactions.genmap import GenMap
+import edaplore.separator
+import edaplore.overview
+import edaplore.interactions
+from edaplore.html_templates.template_loader import find_template
+
+
 import time
 
 
@@ -41,7 +42,7 @@ class Report:
         """
         start_time = time.time()
         full_time = time.time()
-        self.separ = Separator(data=df,
+        self.separ = edaplore.separator.Separator(data=df,
                                fill_mis=fill_mis,
                                drop_outliers=drop_outliers,
                                threshold=threshold,

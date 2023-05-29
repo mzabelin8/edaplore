@@ -1,5 +1,5 @@
 import pandas as pd
-from src.edaplore.types_clases import names
+from edaplore.types_clases import names
 
 
 def is_data_frame(data):

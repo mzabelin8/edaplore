@@ -1,10 +1,9 @@
-# Importing necessary classes from different modules
 
 # Import Combiner class for data combination
-from src.edaplore.separator.combine import *
+from edaplore.separator.combine import *
 
 # Importing plot module for creating different types of plots
-from src import edaplore as plot
+import edaplore.images.make_plot as plot
 
 # Importing classes for handling templates and rendering HTML
 from jinja2 import Environment, FileSystemLoader

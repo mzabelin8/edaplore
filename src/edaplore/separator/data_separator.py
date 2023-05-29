@@ -1,5 +1,5 @@
-from src.edaplore.separator import define_data_type
-from src.edaplore.types_clases import type_numeric, type_boolean, type_categorical
+from edaplore.separator import define_data_type
+from edaplore.types_clases import type_numeric, type_boolean, type_categorical
 
 import pandas as pd
 import numpy as np

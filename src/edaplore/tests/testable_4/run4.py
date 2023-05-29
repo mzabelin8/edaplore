@@ -1,4 +1,4 @@
-from src.edaplore.report.report import Report
+from src.edaplore import Report
 import pandas as pd
 
 # df = pd.read_csv('/Users/maximzabelin/Desktop/titanic/train.csv')
