@@ -15,9 +15,13 @@ Python 3.6 or later
 Required Python packages: pandas, Jinja2
 To install the required packages, use the following command:
 
-pip install edaplore
+$pip install edaplore
 
+
+'''
 git clone https://github.com/mzabelin8/edaplore.git
+'''
+
 
 ## Here's an example of how to run the code:
 import pandas as pd
