@@ -10,10 +10,6 @@ see here
 https://mzabelin8.github.io/examples/
 
 ## Getting Started
-Prerequisites
-Python 3.6 or later
-Required Python packages: pandas, Jinja2
-To install the required packages, use the following command:
 
 ```
 $ pip install edaplore 
