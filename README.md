@@ -4,6 +4,11 @@ Edaplore is a Python-based project for Exploratory Data Analysis (EDA). The proj
 ## Features
 The main feature of this project is the generation of a comprehensive HTML report of the data. This report includes data separation, overview, comparison, and the generation of a correlation map.
 
+## Example
+see here
+
+https://mzabelin8.github.io/examples/
+
 ## Getting Started
 Prerequisites
 Python 3.6 or later
