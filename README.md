@@ -15,21 +15,22 @@ Python 3.6 or later
 Required Python packages: pandas, Jinja2
 To install the required packages, use the following command:
 
-$pip install edaplore
+```
+$ pip install edaplore 
+```
 
 
-'''
+```
 git clone https://github.com/mzabelin8/edaplore.git
-'''
+```
 
 
 ## Here's an example of how to run the code:
+```
 import pandas as pd
-
 from edaplore imoprt Report
 
 data = pd.read_csv('path_to_data')
-
 path = 'path_to_save'
 
 R = Report(data,
@@ -37,7 +38,7 @@ R = Report(data,
            fill_mis=False,
            drop_outliers=False,
            ohe=False)
-
+```
 data: This is a pandas DataFrame that you want to analyze.
 
 path: This is the path where the generated HTML report will be saved.
