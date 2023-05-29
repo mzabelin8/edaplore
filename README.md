@@ -55,5 +55,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## Contact
-You can get in touch with me at my email: mzabelin8@gmail.com
