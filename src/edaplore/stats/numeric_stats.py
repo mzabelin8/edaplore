@@ -1,6 +1,5 @@
 from edaplore.separator.define_data_type import is_series
 
-
 def count_max(data):
     if not is_series(data):
         return 0

@@ -1,5 +1,5 @@
 import pandas as pd
-from edaplore.types_clases import names
+# from edaplore.typclass import names
 
 
 def is_data_frame(data):
@@ -61,18 +61,18 @@ def is_bool_type(data):
     return False
 
 
-def define_type_of_series(data):
-    """
-    Determines the type of a Series according to a custom classification.
-
-    :param data: A pandas Series.
-    :return: A string indicating the custom-defined type of the Series. If the input is not a Series, returns None.
-    """
-    if not is_series(data):
-        return None
-    if is_categorical_type(data):
-        return names.categorical
-    if is_numeric_type(data):
-        return names.numeric
-    if is_bool_type(data):
-        return names.bolean
+# def define_type_of_series(data):
+#     """
+#     Determines the type of a Series according to a custom classification.
+#
+#     :param data: A pandas Series.
+#     :return: A string indicating the custom-defined type of the Series. If the input is not a Series, returns None.
+#     """
+#     if not is_series(data):
+#         return None
+#     if is_categorical_type(data):
+#         return names.categorical
+#     if is_numeric_type(data):
+#         return names.numeric
+#     if is_bool_type(data):
+#         return names.bolean

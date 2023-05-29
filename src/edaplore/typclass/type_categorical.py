@@ -1,6 +1,6 @@
-from edaplore.types_clases.type_father import Type
-from edaplore.types_clases import names
-from edaplore.stats.miss_values import count_miss_vals
+from edaplore.typclass import Type
+from edaplore.typclass import names
+from edaplore.stats import miss_values
 from edaplore.stats import categorical_stats
 from edaplore.images.make_plot import dis_plot
 from edaplore.html_templates.template_loader import find_template
@@ -30,7 +30,7 @@ class Categorical(Type):
         self.data = data.astype('category')  # Convert data to categorical type
         self.type_name = names.categorical  # Set data type name
         self.count_values = len(data)  # Count total values in data
-        self.miss_values = count_miss_vals(data)  # Count missing values
+        self.miss_values = miss_values.count_miss_vals(data)  # Count missing values
 
         self.categories = categorical_stats.get_value_counts(data)  # Get value counts for each category
         self.count_categories = len(self.categories)  # Number of unique categories in data

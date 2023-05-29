@@ -1,4 +1,3 @@
-
 # Import Combiner class for data combination
 from edaplore.separator.combine import *
 
@@ -8,17 +7,14 @@ import edaplore.images.make_plot as plot
 # Importing classes for handling templates and rendering HTML
 from jinja2 import Environment, FileSystemLoader
 
+from edaplore.html_templates.template_loader import find_template
+
 
 # Defining class for interaction between two numeric features
 class NumNum:
     # Function to render HTML templates
     def render(self):
-        # Define the path to the template
-        path_to_template = '/edaplore/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        # Render the template with the given plot names
-        template = env.get_template('interaction_num_num.html').render(plot_names=self.plots)
-        return template
+        return find_template('interaction_num_num.html').render(plot_names=self.plots)
 
     # Initialize the class with two numeric features
     def __init__(self, num1, num2):
@@ -44,10 +40,7 @@ class NumNum:
 class NumCat:
     # Same render function as above
     def render(self):
-        path_to_template = '/edaplore/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('interaction_num_num.html').render(plot_names=self.plots)
-        return template
+        return find_template('interaction_num_num.html').render(plot_names=self.plots)
 
     # Initialize the class with a numeric and a categorical feature
     def __init__(self, num1, cat1):
@@ -73,10 +66,7 @@ class NumCat:
 class CatCat:
     # Same render function as above
     def render(self):
-        path_to_template = '/edaplore/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('interaction_num_num.html').render(plot_names=self.plots)
-        return template
+        return find_template('interaction_num_num.html').render(plot_names=self.plots)
 
     # Initialize the class with two categorical features
     def __init__(self, cat1, cat2):
@@ -96,10 +86,7 @@ class CatCat:
 class Num2Cat:
     # Same render function as above
     def render(self):
-        path_to_template = '/edaplore/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('interaction_num_num.html').render(plot_names=self.plots)
-        return template
+        return find_template('interaction_num_num.html').render(plot_names=self.plots)
 
     # Initialize the class with two numeric features and a categorical feature
     def __init__(self, num1, num2, cat1):
@@ -128,10 +115,7 @@ class Num2Cat:
 class NumCat2:
     # Same render function as above
     def render(self):
-        path_to_template = '/edaplore/html_templates'
-        env = Environment(loader=FileSystemLoader(path_to_template))
-        template = env.get_template('interaction_num_num.html').render(plot_names=self.plots)
-        return template
+        return find_template('interaction_num_num.html').render(plot_names=self.plots)
 
     # Initialize the class with a numeric and two categorical features
     def __init__(self, num1, cat1, cat2):

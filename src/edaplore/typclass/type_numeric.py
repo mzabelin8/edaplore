@@ -1,7 +1,7 @@
-from edaplore.types_clases.type_father import Type
-from edaplore.types_clases import names
-from edaplore.stats.miss_values import count_miss_vals
-from edaplore.stats import numeric_stats
+from edaplore.typclass.type_father import Type
+from edaplore.typclass import names
+from edaplore.stats import miss_values
+import edaplore.stats
 from edaplore.images.make_plot import dis_plot
 from edaplore.html_templates.template_loader import find_template
 
@@ -18,14 +18,14 @@ class Numeric(Type):
         self.type_name = names.numeric  # Set data type name
 
         self.count_values = len(data)  # Count total values in data
-        self.miss_values = count_miss_vals(data)  # Count missing values
-        self.duplicates = numeric_stats.count_duplicates(data)  # Count duplicate values
+        self.miss_values = edaplore.stats.count_miss_vals(data)  # Count missing values
+        self.duplicates = edaplore.stats.count_duplicates(data)  # Count duplicate values
 
         # Calculating basic stats for numeric data
-        self.max = numeric_stats.count_max(data)  # Maximum value
-        self.min = numeric_stats.count_min(data)  # Minimum value
-        self.mean = round(numeric_stats.count_mean(data), 3)  # Mean value rounded to 3 decimal places
-        self.std = round(numeric_stats.count_std(data), 3)  # Standard deviation rounded to 3 decimal places
+        self.max = edaplore.stats.count_max(data)  # Maximum value
+        self.min = edaplore.stats.count_min(data)  # Minimum value
+        self.mean = round(edaplore.stats.count_mean(data), 3)  # Mean value rounded to 3 decimal places
+        self.std = round(edaplore.stats.count_std(data), 3)  # Standard deviation rounded to 3 decimal places
 
         self.dist_plot = dis_plot(self.data)  # Generate a distribution plot
         self.rendered = self.render()  # Render HTML template for displaying data stats

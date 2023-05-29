@@ -5,11 +5,11 @@ from jinja2 import Environment, Template, FileSystemLoader, PackageLoader
 
 def find_template(tmp):
 
-    # Create the Jinja2 environment with the 'html_templates' directory as the loader
-    env = Environment(loader=FileSystemLoader('.'))
+    current_dir = os.path.dirname(os.path.realpath(__file__))
 
-    # Get the template with the given name
+    env = Environment(loader=PackageLoader('edaplore.html_templates', 'templates'))
+
     template = env.get_template(tmp)
 
-    # Return the template
     return template
+

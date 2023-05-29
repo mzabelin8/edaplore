@@ -1,6 +1,7 @@
 import edaplore.separator
 import edaplore.overview
 import edaplore.interactions
+import edaplore.typclass
 from edaplore.html_templates.template_loader import find_template
 
 
@@ -50,15 +51,15 @@ class Report:
         print(f'separ done {time.time() - start_time}')
         start_time = time.time()
 
-        self.overview = Overview(self.separ.data_classes)
+        self.overview = edaplore.overview.Overview(self.separ.data_classes)
         print(f'overview done {time.time() - start_time}')
         start_time = time.time()
 
-        self.compar = ComparatorU(self.separ, cols=self.separ.col_names)
+        self.compar = edaplore.interactions.ComparatorU(self.separ, cols=self.separ.col_names)
         print(f'compU done {time.time() - start_time}')
         start_time = time.time()
 
-        self.genmap = GenMap(self.separ.data)
+        self.genmap = edaplore.interactions.GenMap(self.separ.data)
         print(f'genmap done {time.time() - start_time}')
         start_time = time.time()
 

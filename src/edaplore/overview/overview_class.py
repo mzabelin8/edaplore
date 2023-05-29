@@ -1,4 +1,4 @@
-import edaplore.types_clases.names as names
+import edaplore.typclass.names as names
 
 from edaplore.html_templates.template_loader import find_template
 

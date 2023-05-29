@@ -1,8 +1,8 @@
 import unittest
 import pandas as pd
-from src.edaplore.types_clases.type_boolean import Boolean
-from src.edaplore.types_clases.type_numeric import Numeric
-from src.edaplore.types_clases.type_categorical import Categorical
+from src.edaplore.typclass.type_boolean import Boolean
+from src.edaplore.typclass.type_numeric import Numeric
+from src.edaplore.typclass.type_categorical import Categorical
 
 
 class TestTypeclasses(unittest.TestCase):

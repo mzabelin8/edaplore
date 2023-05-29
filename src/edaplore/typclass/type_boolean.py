@@ -1,6 +1,6 @@
-from edaplore.types_clases.type_father import Type
-from edaplore.types_clases import names
-from edaplore.stats.miss_values import count_miss_vals
+from edaplore.typclass.type_father import Type
+from edaplore.typclass import names
+from edaplore.stats import miss_values
 from edaplore.stats import boolean_stats
 from edaplore.images.make_plot import count_plot
 from edaplore.html_templates.template_loader import find_template
@@ -18,7 +18,7 @@ class Boolean(Type):
 
         self.type_name = names.bolean  # Set data type name
         self.count_values = len(data)  # Count total values in data
-        self.miss_values = count_miss_vals(data)  # Count missing values
+        self.miss_values = miss_values.count_miss_vals(data)  # Count missing values
         self.ratio = boolean_stats.count_ration(data)  # Calculate ratio of True to False values
         self.count_categories = 2  # Number of categories in Boolean type (True and False)
 
